@@ -17,7 +17,7 @@ app.setSerializerCompiler(serializerCompiler)
 app.setValidatorCompiler(validatorCompiler)
 
 app.listen({ 
-    port: 3333
+    port: process.env.PORT ? Number(process.env.PORT) : 3333
  }).then(()=> {
     console.log('http server runing!')
  })
