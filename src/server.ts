@@ -5,6 +5,7 @@ import {
   validatorCompiler,
   type ZodTypeProvider,
 } from 'fastify-type-provider-zod'
+import { env } from './env.ts'
 
 const app = fastify().withTypeProvider<ZodTypeProvider>()
 
@@ -21,8 +22,8 @@ app.get('/health', () => {
 
 app
   .listen({
-    port: process.env.PORT ? Number(process.env.PORT) : 3333,
+    port: env.PORT ? Number(process.env.PORT) : 3333,
   })
   .then(() => {
-    console.log('http server runing!')
+    console.log('http server runing! IN PORT', env.PORT)
   })
